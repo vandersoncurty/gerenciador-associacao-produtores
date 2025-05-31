@@ -28,6 +28,8 @@ from apps.permissions.api import viewsets as permission_viewsets
 from apps.member.api import viewsets as member_viewsets
 from apps.slip_status.api import viewsets as slip_status_viewsets
 from apps.slip.api import viewsets as slip_viewsets
+from apps.system_info.api import viewsets as system_info_viewsets
+from apps.system_config.api import viewsets as system_config_viewsets
 
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView, SpectacularRedocView
 
@@ -41,6 +43,8 @@ route.register(r'permissions', permission_viewsets.PermissionViewSet, basename='
 route.register(r'members', member_viewsets.MemberViewSet, basename='Members')
 route.register(r'slip-status', slip_status_viewsets.SlipStatusViewSet, basename='SlipStatus')
 route.register(r'slips', slip_viewsets.SlipViewSet, basename='Slips')
+route.register(r'system-info', system_info_viewsets.SystemInfoViewSet, basename='SystemInfo')
+route.register(r'system-config', system_config_viewsets.SystemConfigViewSet, basename='SystemConfig')
 
 urlpatterns = [
     # Admin interface
