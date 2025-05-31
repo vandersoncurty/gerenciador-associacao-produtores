@@ -1,3 +1,9 @@
 /.venv
 /db.sqlite3
 __pycache__
+GAR/__pycache__
+contacts/__pycache__
+addresses/__pycache__
+roles/__pycache__
+permissions/__pycache__
+users/__pycache__
