@@ -48,7 +48,8 @@ INSTALLED_APPS = [
     'apps.member',
     'apps.slip_status',
     'apps.slip',
-    'apps.system',
+    'apps.system_config',
+    'apps.system_info',
 ]
 
 MIDDLEWARE = [
@@ -119,6 +120,8 @@ REST_FRAMEWORK = {
     ],
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }
+
+AUTH_USER_MODEL = 'users.User'
 
 SPECTACULAR_SETTINGS = {
     'TITLE': 'GAR API',
