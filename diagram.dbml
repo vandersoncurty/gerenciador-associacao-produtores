@@ -1,0 +1,26 @@
+
+Table users {
+  id integer [primary key]
+  username varchar
+  role varchar
+  created_at timestamp
+  edited_at timestamp
+}
+
+Table partners {
+  id integer [primary key]
+  user_id integer [not null]
+  status varchar
+  created_at timestamp
+  edited_at timestamp
+}
+
+Table payments {
+  id integer
+  user_id integer [not null]
+}
+
+Ref user_payments: payments.user_id > users.id
+
+Ref: partners.user_id > users.id
+
