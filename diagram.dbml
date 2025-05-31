@@ -21,9 +21,10 @@ Table user {
 Table address {
     id integer [primary key]
     street varchar
+    neighborhood varchar
     city varchar
     state varchar
-    postal_code varchar
+    zip_code varchar
     country varchar
     created_at timestamp
     edited_at timestamp
