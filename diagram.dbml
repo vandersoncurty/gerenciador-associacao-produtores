@@ -1,26 +1,98 @@
 
-Table users {
-  id integer [primary key]
-  username varchar
-  role varchar
-  created_at timestamp
-  edited_at timestamp
+Table user {
+    id integer [primary key]
+    email varchar
+    password_hash varchar
+    first_name varchar
+    last_name varchar
+    cpf varchar
+    rg varchar
+    birth_date date
+    profission varchar
+    spouse varchar
+    is_active boolean
+    role_id integer [not null]
+    address_id integer
+    contact_id integer
+    created_at timestamp
+    edited_at timestamp
 }
 
-Table partners {
-  id integer [primary key]
-  user_id integer [not null]
-  status varchar
-  created_at timestamp
-  edited_at timestamp
+Table address {
+    id integer [primary key]
+    street varchar
+    city varchar
+    state varchar
+    postal_code varchar
+    country varchar
+    created_at timestamp
+    edited_at timestamp
 }
 
-Table payments {
-  id integer
-  user_id integer [not null]
+Table contact {
+    id integer [primary key]
+    phone_number varchar
+    email varchar
+    created_at timestamp
+    edited_at timestamp
 }
 
-Ref user_payments: payments.user_id > users.id
+Table role {
+    id integer [primary key]
+    name varchar
+    description varchar
+    permission_id integer [not null]
+    is_active boolean
+    created_at timestamp
+    edited_at timestamp
+}
 
-Ref: partners.user_id > users.id
+Table permission {
+    id integer [primary key]
+    can_view_users boolean
+    can_edit_users boolean
+    can_view_members boolean
+    can_edit_members boolean
+    can_view_slips boolean
+    created_at timestamp
+    edited_at timestamp
+}
 
+Table member {
+    id integer [primary key]
+    user_id integer [not null]
+    membership_date date
+    car_plate varchar
+    car_model varchar
+    status varchar
+    pay_date date
+    created_at timestamp
+    edited_at timestamp
+}
+
+Table slip {
+    id integer [primary key]
+    member_id integer [not null]
+    amount decimal
+    due_date date
+    status integer [not null]
+    created_at timestamp
+    edited_at timestamp
+}
+
+Table slip_status {
+    id integer [primary key]
+    name varchar // e.g. "Pending", "Paid", "Overdue", "Free"
+    color varchar
+    description varchar
+    created_at timestamp
+    edited_at timestamp
+}
+
+Ref: user.id > member.user_id
+Ref: member.id > slip.member_id
+Ref: user.address_id > address.id
+Ref: user.contact_id > contact.id
+Ref: user.role_id > role.id
+Ref: role.permission_id > permission.id
+Ref: slip.status > slip_status.id
