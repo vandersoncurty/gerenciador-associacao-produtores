@@ -40,11 +40,11 @@ INSTALLED_APPS = [
     'rest_framework',
     'drf_spectacular',
     
-    'users',
-    'addresses',
-    'contacts',
-    'roles',
-    'permissions',
+    'apps.users',
+    'apps.addresses',
+    'apps.contacts',
+    'apps.roles',
+    'apps.permissions',
 ]
 
 MIDDLEWARE = [

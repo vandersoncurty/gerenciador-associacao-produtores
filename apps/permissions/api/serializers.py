@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from permissions import models
+from apps.permissions import models
 
 class PermissionSerializer(serializers.ModelSerializer):
     class Meta:

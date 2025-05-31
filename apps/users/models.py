@@ -1,8 +1,7 @@
 from django.db import models
-from contacts.models import Contact
-from addresses.models import Address
-from roles.models import Role
-from permissions.models import Permission
+from apps.contacts.models import Contact
+from apps.addresses.models import Address
+from apps.roles.models import Role
 
 # Create your models here.
 

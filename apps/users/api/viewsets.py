@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from users.api import serializers
-from users import models
+from apps.users.api import serializers
+from apps.users import models
 from rest_framework.permissions import IsAuthenticated
 from drf_spectacular.utils import extend_schema, OpenApiParameter
 
