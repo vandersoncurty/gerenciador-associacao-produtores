@@ -1,4 +1,8 @@
 from django.db import models
+from contacts.models import Contact
+from addresses.models import Address
+from roles.models import Role
+from permissions.models import Permission
 
 # Create your models here.
 
@@ -16,8 +20,8 @@ class User(models.Model):
     profission = models.CharField(max_length=50, blank=True, null=True)
     spouse = models.CharField(max_length=50, blank=True, null=True)
     is_active = models.BooleanField(default=True)
-    role_id = models.ForeignKey('Role', on_delete=models.SET_NULL, null=True, related_name='users')
-    address_id = models.ForeignKey('Address', on_delete=models.SET_NULL, null=True, related_name='users')
-    contact_id = models.ForeignKey('Contact', on_delete=models.SET_NULL, null=True, related_name='users')
+    role = models.ForeignKey(Role, on_delete=models.SET_NULL, null=True, related_name='users')
+    address = models.ForeignKey(Address, on_delete=models.SET_NULL, null=True, related_name='users')
+    contact = models.ForeignKey(Contact, on_delete=models.SET_NULL, null=True, related_name='users')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
