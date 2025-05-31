@@ -45,6 +45,10 @@ INSTALLED_APPS = [
     'apps.contacts',
     'apps.roles',
     'apps.permissions',
+    'apps.member',
+    'apps.slip_status',
+    'apps.slip',
+    'apps.system',
 ]
 
 MIDDLEWARE = [
