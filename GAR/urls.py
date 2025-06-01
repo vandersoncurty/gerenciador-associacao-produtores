@@ -23,8 +23,6 @@ from rest_framework import routers
 from apps.users.api import viewsets as user_viewsets
 from apps.addresses.api import viewsets as address_viewsets
 from apps.contacts.api import viewsets as contact_viewsets
-from apps.roles.api import viewsets as role_viewsets
-from apps.permissions.api import viewsets as permission_viewsets
 from apps.member.api import viewsets as member_viewsets
 from apps.slip_status.api import viewsets as slip_status_viewsets
 from apps.slip.api import viewsets as slip_viewsets
@@ -38,8 +36,6 @@ route = routers.DefaultRouter()
 route.register(r'users', user_viewsets.UserViewSet, basename='Users')
 route.register(r'addresses', address_viewsets.AddressViewSet, basename='Addresses')
 route.register(r'contacts', contact_viewsets.ContactViewSet, basename='Contacts')
-route.register(r'roles', role_viewsets.RoleViewSet, basename='Roles')
-route.register(r'permissions', permission_viewsets.PermissionViewSet, basename='Permissions')
 route.register(r'members', member_viewsets.MemberViewSet, basename='Members')
 route.register(r'slip-status', slip_status_viewsets.SlipStatusViewSet, basename='SlipStatus')
 route.register(r'slips', slip_viewsets.SlipViewSet, basename='Slips')
