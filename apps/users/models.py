@@ -3,7 +3,6 @@ from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from django.db import models
 from apps.contacts.models import Contact
 from apps.addresses.models import Address
-from apps.roles.models import Role
 
 # Create your models here.
 
@@ -20,7 +19,6 @@ class User(AbstractBaseUser, PermissionsMixin):
     profession = models.CharField(max_length=50, blank=True, null=True)
     spouse = models.CharField(max_length=50, blank=True, null=True)
     is_active = models.BooleanField(default=True)
-    role = models.ForeignKey(Role, on_delete=models.SET_NULL, null=True, related_name='users')
     address = models.ForeignKey(Address, on_delete=models.SET_NULL, null=True, related_name='users')
     contact = models.ForeignKey(Contact, on_delete=models.SET_NULL, null=True, related_name='users')
     created_at = models.DateTimeField(auto_now_add=True)
