@@ -39,12 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'drf_spectacular',
+    'rolepermissions',
+    'rest_framework_simplejwt',
     
     'apps.users',
     'apps.addresses',
     'apps.contacts',
-    'apps.roles',
-    'apps.permissions',
     'apps.member',
     'apps.slip_status',
     'apps.slip',
@@ -122,6 +122,8 @@ REST_FRAMEWORK = {
 }
 
 AUTH_USER_MODEL = 'users.User'
+
+ROLEPERMISSIONS_MODULE = 'GAR.roles'
 
 SPECTACULAR_SETTINGS = {
     'TITLE': 'GAR API',
